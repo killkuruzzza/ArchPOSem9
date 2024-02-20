@@ -1,0 +1,35 @@
+
+User {
+	id integer pk increments
+	name string
+	hash string
+	email string
+}
+
+Server {
+	id integer pk increments
+	CPU integer
+	RAM integer
+	SSD integer
+	idOS integer *> OS.id
+}
+
+OS {
+	id integer pk increments
+	osName string
+}
+
+Order {
+	id integer
+	price integer
+	idUser integer *> User.id
+	idServer integer *> Server.id
+	date date
+	time time
+	RAM integer
+	CPU integer
+	SSD integer
+	isOS integer *> OS.id
+	ipAdress string
+}
+
